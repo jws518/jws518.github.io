@@ -1,272 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>신정원 · Marketing Expert</title>
-  <meta name="description" content="데이터로 설계하고 브랜드로 성장시키는 성과창출형 마케터 신정원의 포트폴리오">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <style>
-    :root {
-      --bg: #fafaf8;
-      --surface: #ffffff;
-      --ink: #111111;
-      --muted: #6b6b66;
-      --line: #e6e6e1;
-      --accent: #2b3a8c;
-      --accent-soft: #eef0fb;
-      --max: 920px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-    body {
-      font-family: "Pretendard", -apple-system, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
-      background: var(--bg); color: var(--ink); line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신정원 스무고개</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+<meta name="description" content="반려견 Javi와 함께하는 정원님 알아보기 O/X 스무고개">
+<style>
+  :root {
+    --ivory: #fbf6e9;
+    --paper: #fffdf6;
+    --ink: #3d3126;
+    --muted: #8a7b68;
+    --line: #e9dfc8;
+    --o: #4f8a5b;
+    --x: #c8553d;
+    --gold: #e3b062;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: -apple-system, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  main {
+    min-height: 100vh;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 20px 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header { text-align: center; margin-bottom: 28px; }
+  .q-num { font-family: 'Song Myung', serif; }
+  header h1 { font-family: 'Song Myung', 'Nanum Myeongjo', 'AppleMyungjo', serif; font-size: clamp(30px, 9vw, 44px); white-space: nowrap; font-weight: 400; letter-spacing: .06em; color: #5a3f27; margin: 0; text-shadow: 1px 1px 0 rgba(200,160,100,.25); }
+  .q-num, .progress { }
+  .progress { margin-top: 10px; font-size: 13px; color: var(--muted); min-height: 18px; }
 
-    /* Nav */
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(250,250,248,.88); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-    nav .brand { font-weight: 700; text-decoration: none; letter-spacing: -.01em; }
-    nav ul { display: flex; gap: 22px; list-style: none; font-size: 14px; color: var(--muted); }
-    nav ul a { text-decoration: none; }
-    nav ul a:hover { color: var(--ink); }
-    nav .lang { font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; text-decoration: none; }
-    nav .lang:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .card {
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px 26px 30px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(120, 90, 40, .06);
+    animation: rise .5s ease both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-    section { padding: 88px 0 0; }
-    .eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
-    h2 { font-size: 30px; letter-spacing: -.02em; line-height: 1.3; margin-bottom: 32px; }
+  .real-javi { display: block; height: 260px; width: auto; margin: 0 auto 18px; filter: drop-shadow(0 10px 12px rgba(120,90,40,.22)); animation: rise .6s ease both; }
+  .intro-dog { margin-bottom: 18px; }
+  .bubble { font-size: 18px; line-height: 1.75; margin: 0 0 24px; word-break: keep-all; }
+  .bubble b { font-weight: 600; }
+  .q-num { font-size: 22px; color: #8a5a2b; letter-spacing: .08em; margin-bottom: 14px; }
+  .question { font-size: 21px; line-height: 1.7; font-weight: 500; margin: 0 0 30px; word-break: keep-all; }
 
-    /* Hero */
-    .hero { padding-top: 96px; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 120px; gap: 32px; align-items: start; }
-    .hero h1 { font-size: clamp(30px, 5.4vw, 52px); line-height: 1.22; letter-spacing: -.03em; margin: 14px 0 20px; }
-    .hero .lead { font-size: 18px; color: var(--muted); max-width: 560px; }
-    .hero .en { font-size: 15px; color: var(--muted); margin-top: 14px; font-style: italic; }
-    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
-    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .btn { display: inline-block; padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); }
-    .btn.primary { background: var(--ink); color: #fff; }
-    .btn.primary:hover { background: var(--accent); border-color: var(--accent); }
-    .btn.ghost:hover { background: var(--ink); color: #fff; }
+  .btn {
+    font: inherit; font-size: 15px; font-weight: 600;
+    color: var(--paper); background: var(--ink);
+    border: 0; border-radius: 999px; padding: 12px 28px; cursor: pointer;
+    transition: transform .15s, opacity .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 
-    /* Cards */
-    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
-    .card h3 { font-size: 16px; margin-bottom: 8px; letter-spacing: -.01em; }
-    .card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-    .card .no { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 10px; display: block; }
+  /* O / X signs */
+  .signs { display: flex; justify-content: center; gap: 28px; }
+  .sign {
+    all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center;
+    transition: transform .2s;
+  }
+  .sign:hover:not(:disabled) { transform: translateY(-6px) rotate(-2deg); }
+  .sign:focus-visible .board { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .board {
+    width: 120px; height: 120px; border-radius: 18px;
+    display: grid; place-items: center;
+    font-size: 78px; font-weight: 800; line-height: 1;
+    background: #fff; border: 5px solid currentColor;
+    box-shadow: 0 6px 0 rgba(0,0,0,.08);
+  }
+  .stick { width: 10px; height: 46px; background: #d4b98a; border-radius: 0 0 4px 4px; box-shadow: inset -3px 0 0 rgba(0,0,0,.08); }
+  .sign.o { color: var(--o); }
+  .sign.x { color: var(--x); }
+  .sign:disabled { cursor: default; }
+  .sign.dim { opacity: .35; }
+  .sign.o.picked .board { background: var(--o); color: #fff; }
+  .sign.x.picked .board { background: var(--x); color: #fff; }
+  .sign.answer .board { box-shadow: 0 0 0 6px rgba(227, 176, 98, .55); }
 
-    /* Experience */
-    .job { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-bottom: 20px; }
-    .job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; }
-    .job-head h3 { font-size: 20px; letter-spacing: -.02em; }
-    .job-head .period { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .job .org { font-size: 14px; color: var(--muted); margin-top: 2px; }
-    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 22px 0; }
-    .metric { background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; }
-    .metric b { display: block; font-size: 26px; line-height: 1.15; letter-spacing: -.03em; color: var(--accent); }
-    .metric span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
-    .summary { font-size: 15.5px; font-weight: 600; margin-bottom: 10px; letter-spacing: -.01em; }
-    .job ul { padding-left: 18px; font-size: 14.5px; color: #333; }
-    .job li { margin-bottom: 4px; }
-    details { margin-top: 14px; }
-    summary { cursor: pointer; font-size: 13.5px; color: var(--accent); font-weight: 600; list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-    summary::before { content: "+ "; }
-    details[open] summary::before { content: "− "; }
-    details ul { margin-top: 10px; }
+  .feedback { margin-top: 30px; animation: rise .4s ease both; }
+  .verdict { font-size: 22px; font-weight: 700; margin: 0 0 8px; }
+  .verdict.good { color: var(--o); }
+  .verdict.bad { color: var(--x); }
+  .explain { font-size: 16px; line-height: 1.75; color: var(--ink); margin: 0 0 22px; word-break: keep-all; }
+  [hidden] { display: none !important; }
 
-    /* Selected work */
-    .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .work { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; }
-    .work .tag { font-size: 12px; color: var(--muted); }
-    .work .big { font-size: 40px; font-weight: 800; letter-spacing: -.04em; color: var(--accent); line-height: 1.1; margin: 10px 0 2px; }
-    .work .bigcap { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
-    .work h3 { font-size: 18px; letter-spacing: -.02em; margin-bottom: 14px; }
-    .work dl { font-size: 14px; }
-    .work dt { font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-top: 10px; }
-    .work dd { color: #333; }
+  /* ---------- Javi, the illustrated dog ---------- */
+  #dog {
+    position: fixed; left: 0; bottom: 4px; width: 190px;
+    z-index: 10; pointer-events: none; will-change: transform;
+  }
+  #dog .inner { transition: transform .3s; }
+  #dog.face-left .inner { transform: scaleX(-1); }
+  #dog svg { display: block; width: 100%; height: auto; overflow: visible; }
+  #dog.react { visibility: hidden; }
+  .leg { transform-box: view-box; }
+  .tail { transform-box: fill-box; transform-origin: 90% 90%; animation: wag 1.3s ease-in-out infinite; }
+  .walking .leg.a { animation: step .95s ease-in-out infinite; }
+  .walking .leg.b { animation: step .95s ease-in-out infinite reverse; }
+  .walking .body-bob { animation: bob .475s ease-in-out infinite; }
+  .walking .head-bob { animation: nod .95s ease-in-out infinite; }
+  @keyframes step { 0%,100% { transform: rotate(-20deg); } 50% { transform: rotate(20deg); } }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+  @keyframes nod { 0%,100% { transform: rotate(-1.5deg); } 50% { transform: rotate(2deg); } }
+  @keyframes wag { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(12deg); } }
+  .ftail { transform-box: fill-box; transform-origin: 20% 90%; animation: wag 1.1s ease-in-out infinite; }
 
-    /* Skills */
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { font-size: 13.5px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 14px; }
-    .skill-row { margin-bottom: 20px; }
-    .skill-row h3 { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+  /* front-facing expressions */
+  .face .happy, .face .sad, .face .calm { display: none; }
+  .face.is-happy .happy, .face.is-sad .sad, .face.is-calm .calm { display: inline; }
+  .face .ear-l, .face .ear-r { transform-box: fill-box; transform-origin: 50% 0%; transition: transform .3s; }
+  .face.is-sad .ear-l { transform: rotate(9deg); }
+  .face.is-sad .ear-r { transform: rotate(-9deg); }
+  .face.is-happy .ear-l { transform: rotate(-5deg); }
+  .face.is-happy .ear-r { transform: rotate(5deg); }
+  .face.is-sad .ftail { animation: none; }
+  .face.is-happy { animation: hop .55s ease 2; }
+  .face.is-sad { animation: droop .7s ease both; }
+  @keyframes hop { 50% { transform: translateY(-14px); } }
+  @keyframes droop { from { transform: translateY(-8px); opacity: .5; } to { transform: none; opacity: 1; } }
+  .dog-front { height: 190px; display: flex; justify-content: center; }
+  .dog-front svg { height: 100%; width: auto; }
+  .react-dog { margin: 0 auto 14px; }
 
-    /* Education */
-    .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .edu .item { border-top: 1px solid var(--ink); padding-top: 12px; margin-bottom: 8px; }
-    .edu .item b { display: block; font-size: 16px; }
-    .edu .item span { font-size: 13.5px; color: var(--muted); display: block; }
-    .award { font-size: 14.5px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-    .award small { color: var(--muted); display: block; font-size: 13px; }
-
-    /* Contact + footer */
-    .contact { text-align: center; padding-bottom: 40px; }
-    .contact h2 { font-size: clamp(28px, 5vw, 44px); margin-bottom: 16px; }
-    .contact p { color: var(--muted); margin-bottom: 24px; }
-    .contact .btns { justify-content: center; }
-    footer { text-align: center; font-size: 12.5px; color: var(--muted); padding: 32px 0 48px; border-top: 1px solid var(--line); margin-top: 56px; }
-
-    @media (max-width: 720px) {
-      nav ul { display: none; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .avatar { order: -1; width: 96px; height: 96px; }
-      .grid3, .grid2, .edu { grid-template-columns: 1fr; }
-      section { padding-top: 64px; }
-    }
-  </style>
+  @media (max-width: 480px) {
+    .board { width: 96px; height: 96px; font-size: 62px; }
+    .signs { gap: 18px; }
+    .question { font-size: 19px; }
+    #dog { width: 150px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .leg, .tail, .ftail, .body-bob, .head-bob { animation: none !important; }
+  }
+</style>
 </head>
 <body>
+<main>
+  <header>
+    <h1>신정원 스무고개</h1>
+    <div class="progress" id="progress"></div>
+  </header>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="#top">신정원</a>
-    <ul>
-      <li><a href="#capabilities">핵심역량</a></li>
-      <li><a href="#work">대표 프로젝트</a></li>
-      <li><a href="#skills">스킬</a></li>
-      <li><a href="#contact">연락</a></li>
-    </ul>
-    <a class="lang" href="en/">EN</a>
-  </div>
-</nav>
+  <!-- intro -->
+  <section class="card" id="intro">
+    <div class="dog-front intro-dog" data-front="calm" role="img" aria-label="반려견 Javi"></div>
+    <p class="bubble">
+      안녕하세요? 저는 정원님의 반려견입니다.<br>
+      우리 정원님에 대해 궁금하다구요?<br>
+      <b>퀴즈를 맞추며 알아가보세요.</b>
+    </p>
+    <button class="btn" id="start">시작하기</button>
+  </section>
 
-<!-- 1. Hero -->
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Jeongwon Shin · Marketing Expert</div>
-      <h1>데이터로 설계하고<br>브랜드로 성장시키는<br>성과창출형 마케터</h1>
-      <p class="lead">60개국 글로벌 캠페인부터 국내 브랜드 IP까지, 성장을 설계합니다.</p>
-      <p class="en">Marketing Expert who designs with data and grows brands.</p>
-      <div class="btns">
-        <a class="btn primary" href="mailto:jwshin518@gmail.com">이메일 보내기</a>
-        <!-- TODO: LinkedIn 주소로 교체 -->
-        <a class="btn ghost" href="https://www.linkedin.com/in/YOUR-ID" target="_blank" rel="noopener">LinkedIn</a>
-        <!-- TODO: 이력서 PDF를 assets/ 폴더에 올린 뒤 아래 주석 해제
-        <a class="btn ghost" href="assets/resume-ko.pdf" target="_blank" rel="noopener">이력서 PDF</a>
-        -->
-      </div>
+  <!-- quiz -->
+  <section class="card" id="quiz" hidden>
+    <div class="q-num" id="qnum"></div>
+    <p class="question" id="question"></p>
+    <div class="signs">
+      <button class="sign o" data-choice="O" aria-label="O (맞아요)"><span class="board">O</span><span class="stick"></span></button>
+      <button class="sign x" data-choice="X" aria-label="X (아니에요)"><span class="board">X</span><span class="stick"></span></button>
     </div>
-    <img class="avatar" src="assets/profile.png" alt="신정원 프로필 사진">
-  </div>
-</header>
-
-<!-- 2. Key Capabilities -->
-<section id="capabilities">
-  <div class="wrap">
-    <div class="eyebrow">Key Capabilities</div>
-    <h2>핵심역량</h2>
-    <div class="grid3">
-      <div class="card"><span class="no">01</span><h3>글로벌 IMC 캠페인 리딩</h3><p>글로벌 본사와 해외법인을 연결해 캠페인 전략 수립부터 로컬 액티베이션까지 A to Z를 이끕니다.</p></div>
-      <div class="card"><span class="no">02</span><h3>풀퍼널 전략 &amp; 데이터 분석</h3><p>고객 경험 여정과 데이터를 바탕으로 KPI를 세우고, 집행·분석·최적화·인사이트 도출의 사이클을 만듭니다.</p></div>
-      <div class="card"><span class="no">03</span><h3>콘텐츠 &amp; 인플루언서 마케팅</h3><p>브랜드 메시지와 전환율을 함께 고려한 콘텐츠 전략을 세우고, 인플루언서 협업의 효율을 극대화합니다.</p></div>
-      <div class="card"><span class="no">04</span><h3>브랜드 이벤트 &amp; 커뮤니티</h3><p>온·오프라인 소비자 참여형 이벤트와 커뮤니티를 기획·운영해 코어 유저를 늘리고 미디어 효과를 키웁니다.</p></div>
-      <div class="card"><span class="no">05</span><h3>Paid Media &amp; Martech</h3><p>Meta, Google, 네이버 등 Paid Media를 최적화하고 신규 마케팅 솔루션을 도입해 데이터 기반 마케팅을 전개합니다.</p></div>
-      <div class="card"><span class="no">06</span><h3>예산 관리 &amp; 조직 리딩</h3><p>마케팅 예산을 효율적으로 배분하고, 유관부서·해외법인·에이전시와 협업하며 팀과 프로젝트를 리딩합니다.</p></div>
+    <div class="feedback" id="feedback" hidden>
+      <div class="dog-front react-dog" id="reactDog" role="img" aria-label="Javi"></div>
+      <p class="verdict" id="verdict"></p>
+      <p class="explain" id="explain"></p>
+      <button class="btn" id="next">다음 문제</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 4. Selected Work -->
-<section id="work">
-  <div class="wrap">
-    <div class="eyebrow">Selected Work</div>
-    <h2>대표 프로젝트</h2>
-    <div class="grid2">
+  <!-- end (sample) -->
+  <section class="card" id="end" hidden>
+    <img class="real-javi" src="quiz-assets/javi.png" alt="실제 하비 사진">
+    <p class="bubble" id="endText"></p>
+    <button class="btn ghost" id="restart">처음부터 다시</button>
+  </section>
+</main>
 
-      <article class="work">
-        <span class="tag">Garmin Korea · 브랜드 이벤트 IP</span>
-        <div class="big">4배</div>
-        <div class="bigcap">3천 → 1.2만 명 · 티켓 오픈 2분 만에 매진</div>
-        <h3>Garmin Run Korea: 한국법인 최초 브랜드 마라톤</h3>
-        <dl>
-          <dt>Challenge</dt><dd>스포츠 코어 유저와 브랜드가 만나는 대표 접점이 없었습니다.</dd>
-          <dt>Action</dt><dd>운영 파트너 발굴부터 콘셉트·코스·현장 브랜딩, 사전·현장·사후 마케팅까지 풀사이클로 리딩했습니다. PR·SNS·인플루언서·러닝 커뮤니티를 연계했습니다.</dd>
-          <dt>Result</dt><dd>추가 Paid Media 없이 1년 차 3천 명 규모가 2분 만에 매진됐습니다. 2년 차에는 공도 코스의 하프 마라톤으로 1.2만 명까지 확대하고 약 3:1의 신청 경쟁률을 확보해 대표 브랜드 마라톤 IP로 성장시켰습니다.</dd>
-        </dl>
-      </article>
+<!-- wandering dog -->
+<div id="dog" class="walking" aria-hidden="true"><div class="inner" id="dogSide"></div></div>
 
-      <article class="work">
-        <span class="tag">Garmin Korea · 신규 타깃·카테고리 공략</span>
-        <div class="big">2배+</div>
-        <div class="bigcap">여성 유저 비중 약 10% 성장</div>
-        <h3>여성 웰니스와 골프: 새로운 고객층 열기</h3>
-        <dl>
-          <dt>Challenge</dt><dd>스포츠 중심 브랜드 인식 때문에 여성과 웰니스 영역의 기반이 약했고, 골프는 마케팅·매출 기반이 미미했습니다.</dd>
-          <dt>Action</dt><dd>2540 여성을 핵심 신규 타깃으로 잡고 ‘Garmin with Her’, ‘Women of Endurance’ 캠페인과 웰니스 코치·여성 매거진 협업을 진행했습니다. 골프는 고관여 구매 여정에 맞춰 YouTube·블로그의 리뷰 콘텐츠와 인플루언서 골프 커뮤니티로 풀었습니다.</dd>
-          <dt>Result</dt><dd>웰니스 카테고리의 유저가 2배 이상 증가했습니다. 골프 카테고리 유저도 1년 만에 약 2배가 됐습니다.</dd>
-        </dl>
-      </article>
+<script src="quiz-assets/dogs.js"></script>
+<script>
+/* ---------------- 질문 데이터 (여기에 계속 추가하면 됩니다) ---------------- */
+const QUESTIONS = [
+  { text: "정원님의 반려견인 저, 이름은 Harvey 입니다.", answer: "X", explain: "저의 이름은 Javi (하비, 스페인식 발음) 입니다." },
+  { text: "정원님은 PMBA 소속입니다.", answer: "X", explain: "IMMS 13기 입니다." },
+  { text: "정원님이 재직중인 회사는 Garmin 입니다.", answer: "O", explain: "" },
+  { text: "Garmin은 웨어러블디바이스 (스마트워치) 회사입니다.", answer: "X", explain: "가민은 GPS 기술 회사입니다." },
+  { text: "Garmin은 창업주인 Gary 와 Min Kao 의 이름을 따서 지은 것 입니다.", answer: "O", explain: "" },
+  { text: "정원님은 Garmin 이 첫 직장입니다.", answer: "X", explain: "첫 직장은 LG전자, 가민코리아는 두번째 직장입니다." },
+  { text: "정원님과 Garmin은 동갑입니다.", answer: "O", explain: "1989년입니다." },
+  { text: "정원님은 현재 영업직에 종사하고 있습니다.", answer: "X", explain: "마케팅입니다." },
+  { text: "정원님의 마케팅 주전공은 디지털 마케팅입니다.", answer: "O", explain: "" },
+  { text: "하지만 정원님은 이제 모든 마케팅을 다하고 있습니다.", answer: "O", explain: "" },
+  { text: "정원님의 연간 가장 큰 이벤트는 “가민런코리아” 마라톤 대회입니다.", answer: "O", explain: "" },
+  { text: "가민런코리아는 2022년부터 시작되었고, 정원님은 2025년부터 담당했습니다.", answer: "X", explain: "정원님이 국내 첫 가민런코리아 대회를 2025년 런칭했습니다!" },
+  { text: "정원님의 풀 마라톤 개인 기록은 5시간 30분입니다.", answer: "X", explain: "4시간 17분, 2025년 JTBC 마라톤 기록입니다." },
+  { text: "저 (하비) 는 달리기를 좋아합니다.", answer: "X", explain: "하비는 500m도 달리기 싫어해요." },
+  { text: "정원님은 Garmin 다니기 전부터 마라톤을 좋아했습니다.", answer: "X", explain: "마라톤은 일때문에 시작했어요." },
+  { text: "정원님의 원래 취미는 Yacht Sailing 입니다.", answer: "O", explain: "" },
+  { text: "정원님은 삼대 160입니다.", answer: "X", explain: "삼대가 뭔지도 사실 잘 모른답니다." },
+  { text: "정원님은 파워포인트보다 엑셀 작업을 좋아합니다.", answer: "O", explain: "엑셀하며 희열 느끼는 사람.. 저의 주인이에요." },
+  { text: "정원님은 사실 기계치입니다.", answer: "O", explain: "" },
+  { text: "정원님에 대한 TMI 질문을 끝까지 함께해주셔서 대단히 감사드립니다.", answer: "*", explain: "O, X 모두 정답이에요!" },
+];
+const TOTAL = 20;
+const ORD = ["첫","두","세","네","다섯","여섯","일곱","여덟","아홉","열","열한","열두","열세","열네","열다섯","열여섯","열일곱","열여덟","열아홉","스무"];
 
-      <article class="work">
-        <span class="tag">LG Electronics · 글로벌 캠페인</span>
-        <div class="big">60+국</div>
-        <div class="bigcap">LG OLED TV 최상위 포지셔닝 캠페인</div>
-        <h3>OLED TV 글로벌 디지털 마케팅 캠페인</h3>
-        <dl>
-          <dt>Challenge</dt><dd>프리미엄 TV 시장에서 OLED의 기술 우위와 브랜드 가치를 60개국 이상에 일관되게 전달해야 했습니다.</dd>
-          <dt>Action</dt><dd>2021년 Self-lit pixel 기술 소구, 2022년 “Light up your world” 감성 소구로 캠페인을 설계했습니다. 퍼널별 매체·콘텐츠 전략, SEM·SEO, 랜딩페이지 최적화를 맡았고 해외법인의 TV 광고·인스토어 마케팅과 연계했습니다.</dd>
-          <dt>Result</dt><dd>담당 국가인 스페인·캐나다에서 캠페인 기간 Google 검색 점유율 1위와 매출 목표 120% 이상을 달성했습니다. 경쟁사 대비 M/S 격차도 줄였고, 팀은 2년 연속 The Best Teams of the Year에 선정됐습니다.</dd>
-        </dl>
-      </article>
+var $ = (id) => document.getElementById(id);
+/* ---------------- 캐릭터 삽입 ---------------- */
+document.body.insertAdjacentHTML("afterbegin", DOG_DEFS);
+$("dogSide").innerHTML = DOG_SIDE;
+document.querySelectorAll("[data-front]").forEach(el => el.innerHTML = DOG_FRONT);
 
-      <article class="work">
-        <span class="tag">LG Electronics · 도전자 전략</span>
-        <div class="big">시장점유율 확대</div>
-        <div class="bigcap">XBOOM Go 시장점유율 · 브랜드 검색점유율 +10%p</div>
-        <h3>XBOOM Go: 스피커 강자들 사이에서 점유율 키우기</h3>
-        <dl>
-          <dt>Challenge</dt><dd>유럽·중남미에서 JBL, Bose가 강한 시장이었고, XBOOM Go는 인지도가 낮고 M/S도 매우 작았습니다.</dd>
-          <dt>Action</dt><dd>시장·경쟁사 분석으로 니치 타깃을 정의하고 “Balanced and Clear Sound” 메시지를 만들었습니다. 인플루언서 콘텐츠를 광고로 확산하고, 해외법인과 프로모션을 연계해 유통사이트 유입과 제품 가시성을 높였습니다.</dd>
-          <dt>Result</dt><dd>브랜드 검색점유율이 비캠페인 기간보다 10%p 이상 올랐고 Sales 목표를 초과 달성했습니다. M/S는 캠페인 기간 중 이전 대비 5배 성장했고, 우수 Task로 선정됐습니다.</dd>
-        </dl>
-      </article>
+/* ---------------- 화면 전환 ---------------- */
+const intro = $("intro"), quiz = $("quiz"), end = $("end");
+let idx = 0, locked = false, score = 0;
 
-    </div>
-  </div>
-</section>
+function show(el) { [intro, quiz, end].forEach(s => s.hidden = s !== el); }
 
-<!-- 5. Skills & Tools -->
-<section id="skills">
-  <div class="wrap">
-    <div class="eyebrow">Skills &amp; Tools</div>
-    <h2>스킬 &amp; 툴</h2>
-    <div class="skill-row"><h3>Paid &amp; Search</h3>
-      <div class="chips"><span class="chip">Meta Ads</span><span class="chip">Google Ads (SEM)</span><span class="chip">SEO</span><span class="chip">네이버 광고</span><span class="chip">A/B Test</span></div></div>
-    <div class="skill-row"><h3>Data &amp; Insight</h3>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Qualtrics</span><span class="chip">AWR</span><span class="chip">Sprinklr</span><span class="chip">GfK</span><span class="chip">NPD</span><span class="chip">마케팅 대시보드</span></div></div>
-    <div class="skill-row"><h3>Influencer</h3>
-      <div class="chips"><span class="chip">Nox Influencer</span><span class="chip">Upfluence</span><span class="chip">VidIQ</span></div></div>
-    <div class="skill-row"><h3>Language &amp; Office</h3>
-      <div class="chips"><span class="chip">Advanced Business English</span><span class="chip">MS Office</span></div></div>
-  </div>
-</section>
+function renderQuestion() {
+  const q = QUESTIONS[idx];
+  $("progress").textContent = `${idx + 1} / ${TOTAL}`;
+  $("qnum").textContent = `${ORD[idx]}번째 고개`;
+  $("question").textContent = q.text;
+  $("feedback").hidden = true;
+  document.querySelectorAll(".sign").forEach(b => {
+    b.disabled = false;
+    b.className = "sign " + b.dataset.choice.toLowerCase();
+  });
+  locked = false;
+  dog.endReact();
+}
 
-<!-- 7. Contact -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="eyebrow">Contact</div>
-    <h2>함께 이야기해 보고 싶으시다면</h2>
-    <p>글로벌 브랜드의 성장 기회에 대해 이야기 나누고 싶습니다.</p>
-    <div class="btns">
-      <a class="btn primary" href="mailto:jwshin518@gmail.com">jwshin518@gmail.com</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/YOUR-ID" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</section>
+$("start").onclick = () => { idx = 0; score = 0; show(quiz); renderQuestion(); };
 
-<footer>© 2026 Jeongwon Shin</footer>
+document.querySelectorAll(".sign").forEach(btn => {
+  btn.onclick = () => {
+    if (locked) return;
+    locked = true;
+    const q = QUESTIONS[idx];
+    const ok = q.answer === "*" || btn.dataset.choice === q.answer;
+    if (ok && q.answer !== "*") score++;
+    document.querySelectorAll(".sign").forEach(b => {
+      b.disabled = true;
+      if (b === btn) b.classList.add("picked");
+      else b.classList.add("dim");
+      if (q.answer !== "*" && b.dataset.choice === q.answer) { b.classList.remove("dim"); b.classList.add("answer"); }
+    });
+    const v = $("verdict");
+    v.textContent = q.answer === "*" ? "모두 정답! 🐾" : ok ? "정답이에요! 🐾" : "앗, 아쉬워요…";
+    v.className = "verdict " + (ok ? "good" : "bad");
+    $("explain").textContent = (ok ? "" : `정답은 ${q.answer}! `) + q.explain;
+    $("explain").hidden = !$("explain").textContent;
+    $("next").textContent = idx + 1 < QUESTIONS.length ? "다음 문제" : "마무리";
+    $("feedback").hidden = false;
+    dog.react(ok ? "happy" : "sad");
+  };
+});
 
+$("next").onclick = () => {
+  idx++;
+  if (idx < QUESTIONS.length) { renderQuestion(); return; }
+  dog.endReact();
+  $("progress").textContent = "";
+  $("endText").innerHTML = `끝까지 함께해주셔서 감사해요!<br><b>19고개 중 ${score}개</b>를 맞히셨어요. 🐶<br>이제 정원님을 조금 아시겠죠?`;
+  show(end);
+};
+$("restart").onclick = () => { idx = 0; score = 0; show(intro); $("progress").textContent = ""; };
+
+/* ---------------- 돌아다니는 강아지 ---------------- */
+const dog = (() => {
+  const el = $("dog");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let x = 40, dir = 1, speed = reduce ? 0 : 26;           // px/sec — 천천히
+  let mode = "walk", timer = 0, reacting = false;
+
+  const width = () => el.offsetWidth;
+  const maxX = () => innerWidth - width() - 8;
+
+  function setMode(m, dur) {
+    mode = m; timer = dur;
+    el.classList.toggle("walking", m === "walk");
+    el.classList.toggle("sitting", m === "sit");
+  }
+  function pickNext() {
+    if (Math.random() < 0.35) setMode("sit", 1.8 + Math.random() * 2);
+    else { if (Math.random() < 0.3) dir *= -1; setMode("walk", 4 + Math.random() * 6); }
+  }
+
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (!reacting) {
+      timer -= dt;
+      if (timer <= 0) pickNext();
+      if (mode === "walk") {
+        x += dir * speed * dt;
+        if (x > maxX()) { x = maxX(); dir = -1; }
+        if (x < 8) { x = 8; dir = 1; }
+      }
+    }
+    el.classList.toggle("face-left", dir < 0);
+    el.style.transform = `translateX(${x}px)`;
+    requestAnimationFrame(frame);
+  }
+  setMode("walk", 6);
+  requestAnimationFrame(frame);
+
+  return {
+    react(kind) {
+      reacting = true;
+      el.classList.remove("walking");
+      el.classList.add("react");
+      const r = $("reactDog");
+      r.innerHTML = DOG_FRONT;
+      r.firstElementChild.setAttribute("class", "face is-" + kind);
+    },
+    endReact() {
+      if (!reacting) return;
+      reacting = false;
+      el.classList.remove("react");
+      setMode("walk", 4);
+    }
+  };
+})();
+</script>
 </body>
 </html>
